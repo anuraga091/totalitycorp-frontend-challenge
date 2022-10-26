@@ -14,6 +14,10 @@
 6. I have many suggestions regarding what can we add in the functionality
 
 
+# Deployed links
+https://totalitycorp-fe-assignment.netlify.app/
+
+
 
 
 
