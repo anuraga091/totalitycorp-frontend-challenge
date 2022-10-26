@@ -1,11 +1,11 @@
-#How to run this code
+# How to run this code
 1. Clone this repository
 2. Open the server
 3. Install all the dependencies by running npm install on both client folder by changing directory (cd totalitycorp-frontend-challenge)
 4. Open the server by giving command in the terminal as npm start 
 
 
-#Functionality
+# Functionality
 1. Website have navbar and footer
 2. Hover and Click interaction is present but not functional
 3. It has various links and some buttons(Yet to give functionality as it was not specified)
