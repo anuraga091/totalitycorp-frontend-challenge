@@ -1,3 +1,29 @@
+#How to run this code
+1. Clone this repository
+2. Open the server
+3. Install all the dependencies by running npm install on both client folder by changing directory (cd totalitycorp-frontend-challenge)
+4. Open the server by giving command in the terminal as npm start 
+
+
+#Functionality
+1. Website have navbar and footer
+2. Hover and Click interaction is present but not functional
+3. It has various links and some buttons(Yet to give functionality as it was not specified)
+4. Website is responsive for all devices
+5. We can give all other functionality from backend and frontend
+6. I have many suggestions regarding what can we add in the functionality
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
