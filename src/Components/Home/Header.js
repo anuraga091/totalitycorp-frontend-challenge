@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = (props) => {
+const Header = () => {
     return (
         <Container>
             <Content>
@@ -121,7 +121,7 @@ const Search = styled.div`
         background-color: #eef3f8;
         border-radius: 2px;
         color: rgba(0 0 0 0.9);
-        width: 230px;
+        max-width: 300px;
         height: 35px;
         padding: 0 8px 0 40px;
         line-height: 1.75;
@@ -192,7 +192,7 @@ const NavList = styled.li`
         align-items: center;
     }
     @media (max-width: 768px) {
-      min-width: 70px;
+      min-width: 40px;
     }
   
     &:hover,&:active {
@@ -217,7 +217,29 @@ const SignOut = styled.div`
     display: none;
     `;
 
-const User = styled(NavList)`
+const User = styled.div`
+    list-style-type: none;
+    @media(max-width: 768px){
+        top: 15px;
+        right: -10px;
+        position: fixed;
+    }
+    a {
+        align-items: center;
+        display: flex;
+        background: transparent;
+        border-radius: 2px;
+        flex-direction: column;
+        font-weight: 400;
+        font-size: 12px;
+        justify-content: center;
+        min-height: 42px;
+        min-width: 80px;
+        position: relative;
+        line-height: 1.5;
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.6);
+    }
     a > svg {
         width: 24px;
         border-radius: 50%;
@@ -226,10 +248,20 @@ const User = styled(NavList)`
         width: 24px;
         height: 24px;
         border-radius: 50%;
+        @media(max-width: 768px){
+            width: 30px;
+            height: 30px;
+        }
     }
     span {
         display: flex;
         align-items: center;
+        color: rgba(0, 0, 0, 0.6);
+        @media(max-width: 768px){
+            display: none;
+            visibility: hidden;
+            position: fixed;
+        }
     }
     &:hover {
         ${SignOut} {
@@ -242,6 +274,12 @@ const User = styled(NavList)`
 
 const Work = styled(User)`
      border-left: 1px solid rgba(0, 0, 0, 0.08);
+      @media(max-width: 768px){
+        top: 0;
+        right: 0;
+        position: fixed;
+        display: none;
+    }
 `;
 
 export default Header;

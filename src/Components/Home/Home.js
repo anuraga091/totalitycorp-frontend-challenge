@@ -4,7 +4,7 @@ import LeftSection from "./LeftSide/LeftSection";
 import MiddleSection from "./Middle/MiddleSection";
 import RightSection from "./RightSide/RightSection";
 
-const Home = (props) => {
+const Home = () => {
   return (
     <Container>
       <Header/>

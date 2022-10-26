@@ -1,92 +1,108 @@
 import styled from "styled-components";
+import { postData } from "../../../data";
 
-const MiddleSection = (props) => {
-  return <Container>
-    <ShareBox>
+const MiddleSection = () => {
+  return (
+    <Container>
+      <ShareBox>
+        <div>
+          <img src="/images/user.svg" alt=""/>
+          <button style={{color: 'rgba(0,0,0,0.6)'}}>Start a post</button>
+        </div>
+
+        <div style={{display: 'flex'}}>
+          <button>
+            <img src="/images/photo-icon.png" alt="" style={{color: 'rgba(0,0,0,0.6)'}}/>
+            <span>Photo</span>
+          </button>
+
+          <button>
+            <img src="/images/video-icon.png" alt="" />
+            <span >Video</span>
+          </button>
+
+          <button>
+            <img src="/images/job-icon.png" alt="" />
+            <span>Job</span>
+          </button>
+
+          <button>
+            <img src="/images/write-article-icon.png" alt="" />
+            <span>Write article</span>
+          </button>
+        </div>
+      </ShareBox>
+      <hr style={{margin: 10}}/>
       <div>
-        <img src="/images/user.svg" alt=""/>
-        <button style={{color: 'rgba(0,0,0,0.6)'}}>Start a post</button>
-      </div>
+        {
+         postData.map((data,key) => (
+        <Article key={data.id}>
+          <SharedActor>
+            <a href="/">
+              <img src={data.avatar} alt=""/>
+                <div>
+                  <span  style={{marginTop: 5, color: 'rgba(0,0,0,0.8)', fontSize: '14px'}}>{data.name}</span>
+                  <span style={{marginLeft: 2, color: 'rgba(0,0,0,0.8)'}}>{data.info}</span>
+                  <span style={{marginLeft: 2, color: 'rgba(0,0,0,0.8)'}}>{data.time}</span>
+                </div>
 
-      <div style={{display: 'flex'}}>
-        <button>
-          <img src="/images/photo-icon.png" alt="" style={{color: 'rgba(0,0,0,0.6)', marginRight: '2px', paddingRight: 5, height: '20px', width: 'auto'}}/>
-          <span style={{marginTop: '2px'}}>Photo</span>
-        </button>
-
-        <button>
-          <img src="/images/video-icon.png" alt="" style={{ marginRight: '2px', paddingRight: 5, height: '20px', width: 'auto'}}/>
-          <span style={{marginTop: '2px'}} >Video</span>
-        </button>
-
-        <button>
-          <img src="/images/job-icon.png" alt="" style={{ marginRight: '2px', paddingRight: 5, height: '20px', width: 'auto'}}/>
-          <span style={{marginTop: '2px'}}>Job</span>
-        </button>
-
-        <button>
-          <img src="/images/write-article-icon.png" alt="" style={{marginRight: '2px', paddingRight: 5, height: '20px', width: 'auto'}}/>
-          <span style={{marginTop: '2px'}}>Write article</span>
-        </button>
-      </div>
-    </ShareBox>
-    <hr style={{margin: 10}}/>
-    <div>
-      <Article>
-        <SharedActor>
-          <a href="/">
-            <img src="/images/user.svg" alt=""/>
-              <div>
-                <span  style={{marginTop: 5, color: 'rgba(0,0,0,0.8)', fontSize: '14px'}}>Title</span>
-                <span style={{marginLeft: 2, color: 'rgba(0,0,0,0.8)'}}>Info</span>
-                <span style={{marginLeft: 2, color: 'rgba(0,0,0,0.8)'}}>Date</span>
-              </div>
-
+                <button>
+                  <img src="/images/ellipsis.png" alt=""/>
+                </button>
+            </a>
+          </SharedActor>
+          <Description>{data.description}</Description>
+          <SharedImage>
+            <a href="/">
+              <img src={data.url} alt=""/>
+            </a>
+          </SharedImage>
+          <SocialCounts>
+            <li>
               <button>
-                <img src="/images/ellipsis.png" alt=""/>
+                <img src="/images/like-icon.png" alt=""/>
+                <img src="/images/clap-icon.png" alt=""/>
+                <span>{data.likes}</span>
+                
               </button>
-          </a>
-        </SharedActor>
-        <Description>Description</Description>
-        <SharedImage>
-          <a href="/">
-            <img src="/images/shared-img.jpg" alt=""/>
-          </a>
-        </SharedImage>
-        <SocialCounts>
-          <li>
+            </li>
+            <li>
+              <a href="/">{data.comments} Comments</a>
+            </li>
+          </SocialCounts>
+          <SocialActions>
             <button>
-              <img src="/images/like-icon.png" alt=""/>
-              <img src="/images/clap-icon.png" alt=""/>
-              <span>75</span>
+            
+                <img src="/images/like-icon.png" alt=""/>
+                <span>Like</span>
+          
+            </button>
+            <button>
+          
+                <img src="/images/comment-icon.png" alt=""/>
+                <span>Comment</span>
+          
+            </button>
+            <button>
+              
+                <img src="/images/share-icon.png" alt=""/>
+                <span>Share</span>
               
             </button>
-          </li>
-          <li>
-            <a href="/">2 Comments</a>
-          </li>
-        </SocialCounts>
-        <SocialActions>
-          <button>
-            <img src="/images/like-icon.png" alt=""/>
-            <span>Like</span>
-          </button>
-          <button>
-            <img src="/images/comment-icon.png" alt=""/>
-            <span>Comment</span>
-          </button>
-          <button>
-            <img src="/images/share-icon.png" alt=""/>
-            <span>Share</span>
-          </button>
-          <button>
-            <img src="/images/send-icon.png" alt=""/>
-            <span>Send</span>
-          </button>
-        </SocialActions>
-      </Article>
-    </div>
-  </Container>;
+            <button>
+            
+                <img src="/images/send-icon.png" alt=""/>
+                <span>Send</span>
+          
+            </button>
+          </SocialActions>
+        </Article>
+        ))
+       }
+      </div>
+    </Container>
+
+  )
 };
 
 const Container = styled.div`
@@ -152,9 +168,18 @@ const ShareBox = styled(CommonCard)`
         img{
         width: 20px;
         margin:0 6px 0 -2px;
+        @media(min-width: 768px){
+          margin-right: 2px;
+          padding-right: 5px;
+          height: 20px;
+          width: auto
+        }
       }
       span{
         color: rgba(0,0,0,0.6);
+        @media(min-width: 768px){
+          margin-top: 2px
+        }
 
       }
         
@@ -286,9 +311,19 @@ const SocialActions = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-around;
-  margin: 0;
   min-height: 40px;
   padding: 4px 8px;
+  @media(max-width: 768px){
+    button{
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+      
+    }
+    span{
+        margin-top: 4px;
+    }
+  }
   button{
     display: inline-flex;
     align-items: center;
@@ -298,15 +333,11 @@ const SocialActions = styled.div`
     background-color: white;
     
     span{
-      margin-left: 2px;
+      margin-left: 5px;
+      color: rgba(0,4,0,0.6);
     }
 
-    @media (min-width: 768px){
-      span{
-        margin-left: 8px;
 
-      }
-    }
     img{
       width: 25px;
       height: 25px;
